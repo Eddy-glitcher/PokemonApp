@@ -1,7 +1,6 @@
 @import '../../../../styles.scss';
 
 .header-container{
-  width: 100%;
   padding: 10px;
   @include mixin-display-flex(column,space-between);
   gap: 10px;
