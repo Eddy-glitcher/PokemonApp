@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Colors
+
+$color-primary       : #E27C7C;
+$color-primary-light : #F6D2D2;
+
+$color-white         : #fff;
+$color-grey          : rgb(222, 222, 222);
+$color-black         : #000;
+
+// Colors
+
+// Mixins
+@mixin mixin-display-flex($flex-direction,$justify-content){
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: center;
+}
+// Mixins
