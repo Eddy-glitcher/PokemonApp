@@ -20,3 +20,13 @@ $color-black         : #000;
   align-items: center;
 }
 // Mixins
+
+.max-widht-content{
+  width: 95%;
+  margin: 0px auto;
+}
+
+button{
+  cursor: pointer;
+  outline: none;
+}
