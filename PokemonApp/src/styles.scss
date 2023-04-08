@@ -12,6 +12,63 @@ $color-black         : #000;
 
 // Colors
 
+// Pokemon filters and Card Colors
+.fire-type{
+  background-color: #FB8989;
+}
+.grass-type{
+  background-color: #78C850;
+}
+.water-type{
+  background-color: #43ABD8;
+}
+.electric-type{
+  background-color: #EBAC4F;
+}
+.rock-type{
+  background-color: #B8A058;
+}
+.ghost-type{
+  background-color: #6060B0;
+}
+.dragon-type{
+  background-color: #7860E0;
+}
+.poison-type{
+  background-color: #B058A0;
+}
+.bug-type{
+  background-color: #A8B820;
+}
+.ground-type{
+  background-color: #d3b975;
+}
+.psychic-type{
+  background-color: #F870A0;
+}
+.steel-type{
+  background-color: #A8A8C0;
+}
+.flying-type{
+  background-color: #98A8F0;
+}
+.fairy-type{
+  background-color: #e28de2;
+}
+.fighting-type{
+  background-color: #A05038;
+}
+.dark-type{
+  background-color: #9538DE;
+}
+.ice-type{
+  background-color: #58C8E0;
+}
+.normal-type{
+  background-color: #A8A090;
+}
+// Pokemon filters and Card Colors
+
 // Mixins
 @mixin mixin-display-flex($flex-direction,$justify-content){
   display: flex;
