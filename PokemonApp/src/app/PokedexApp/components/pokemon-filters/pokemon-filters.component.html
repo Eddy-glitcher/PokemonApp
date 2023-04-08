@@ -1,0 +1,19 @@
+<section class="filters-container">
+
+  <div class="max-widht-content filters-content">
+
+    <div class="filter-title">
+      <h2>BUSCAR POR TIPO</h2>
+    </div>
+
+    <div class="filter-buttons-container">
+      <button *ngFor="let filter of arrPokemonFilters" class="filter-button {{filter.type}}-type">
+        <img src="{{filter.icon}}" alt="Filtro">
+        <span>{{filter.name}}</span>
+      </button>
+    </div>
+
+  </div>
+
+
+</section>

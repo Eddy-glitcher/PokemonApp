@@ -1,0 +1,46 @@
+@import '../../../../styles.scss';
+
+.filters-container{
+  width: 100%;
+  margin: 0px auto;
+
+  background-color: rgb(201, 152, 152);
+
+  .max-widht-content{
+    width: 98%;
+  }
+  // TODO: YA VERMEOS EL ANCHOP, NO ME CONVENCE
+}
+
+.filters-content{
+  @include mixin-display-flex(column,center);
+  gap: 5px;
+}
+
+.filter-buttons-container{
+  width: 100%;
+  border: solid 1px blue;
+  box-sizing: border-box;
+  padding: 5px;
+  @include mixin-display-flex(row,space-around);
+  flex-wrap: wrap;
+  gap: 5px;
+
+  .filter-button{
+    border: none;
+    text-align: center;
+    border-radius: 5px;
+    width: 50px;
+
+    img{
+      width: 40px;
+      height: 35px;
+    }
+
+    span{
+      display: block;
+      font-size: 10px;
+    }
+
+  }
+}
