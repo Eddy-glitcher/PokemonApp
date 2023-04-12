@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { PokedexRoutingModule } from './pokedex-routing.module';
 import { HeaderComponent } from './shared/header/header.component';
 import { PokemonFiltersComponent } from './components/pokemon-filters/pokemon-filters.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 
 
 @NgModule({
@@ -13,7 +15,8 @@ import { PokemonFiltersComponent } from './components/pokemon-filters/pokemon-fi
   ],
   imports: [
     CommonModule,
-    PokedexRoutingModule
+    PokedexRoutingModule,
+    CarouselModule
   ],
   exports:[
     HeaderComponent,
