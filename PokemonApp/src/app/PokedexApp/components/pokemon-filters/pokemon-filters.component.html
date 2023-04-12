@@ -1,19 +1,25 @@
-<section class="filters-container">
+<section class="types-filters-section">
 
-  <div class="max-widht-content filters-content">
+  <div class="max-widht-content">
+    <div class="filters-container">
 
-    <div class="filter-title">
-      <h2>BUSCAR POR TIPO</h2>
+      <div class="title-filter"><h2>BUSCAR POR FILTROS</h2></div>
+
+      <div class="filter-items">
+        <owl-carousel-o [options]="customOptions" #owlCar>
+
+          <ng-container *ngFor="let filter of arrPokemonFilters">
+            <ng-template carouselSlide>
+                <button class="filter-item {{filter.type}}-type"  (click)="activateFilterClass(filter.type)"  [ngClass]="activeFilterClass == filter.type ? 'filter-item-active' : '' ">
+                  <img src="{{filter.icon}}" alt="Filtro">
+                  <span>{{filter.name}}</span>
+                </button>
+            </ng-template>
+          </ng-container>
+
+        </owl-carousel-o>
+      </div>
+
     </div>
-
-    <div class="filter-buttons-container">
-      <button *ngFor="let filter of arrPokemonFilters" class="filter-button {{filter.type}}-type">
-        <img src="{{filter.icon}}" alt="Filtro">
-        <span>{{filter.name}}</span>
-      </button>
-    </div>
-
   </div>
-
-
 </section>

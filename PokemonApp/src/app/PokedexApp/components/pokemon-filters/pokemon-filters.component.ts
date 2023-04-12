@@ -1,12 +1,51 @@
 import { Component } from '@angular/core';
 import { PokemonFilters } from '../../interfaces/pokemon-filters';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-pokemon-filters',
   templateUrl: './pokemon-filters.component.html',
-  styleUrls: ['./pokemon-filters.component.scss']
+  styleUrls: ['./pokemon-filters.component.scss'],
 })
 export class PokemonFiltersComponent {
+
+  activeFilterClass!: string;
+
+  activateFilterClass(type : string){
+    this.activeFilterClass = type;
+  }
+
+  customOptions: OwlOptions = {
+    loop: false,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: false,
+    dots: true,
+    margin:30,
+    navSpeed:300,
+    navText: ['<i class="fa-solid fa-angle-left"></i>' , '<i class="fa-solid fa-angle-right"></i>'],
+    responsive: {
+      0: {
+        items: 2
+      },
+      240:{
+        items: 2
+      },
+      300:{
+        items: 3
+      },
+      400: {
+        items: 5
+      },
+      740: {
+        items: 6
+      },
+      940: {
+        items: 10
+      }
+    },
+    nav: true
+  }
 
   arrPokemonFilters : PokemonFilters[] = [
     {
@@ -101,5 +140,6 @@ export class PokemonFiltersComponent {
     },
 
   ]
+
 
 }
