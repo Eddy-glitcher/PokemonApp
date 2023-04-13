@@ -14,15 +14,23 @@ export class PokeApiService {
   pokemonInitialList : PokemonData[] = [];
 
   constructor(private http : HttpClient) {
-    this.getInitialPokemons();
+  }
+
+  getPokemonByUrl(url: string) {
+    return this.http.get<PokemonData>(url);
   }
 
   getInitialPokemons(){
     const url :string = `${this.baseUrl}/pokemon/`
 
     this.http.get<PokemonList>(url).subscribe( (resp) =>{
-      console.log(resp);
-    })
+      this.pokemonInitialList = [];
+        resp.results.forEach((pokemon) => {
+          this.getPokemonByUrl(pokemon.url).subscribe((resp) => {
+            this.pokemonInitialList.push(resp);
+          });
+        });
+      })
   }
 
 
