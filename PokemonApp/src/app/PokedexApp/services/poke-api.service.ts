@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { PokemonData } from '../interfaces/pokemon-data';
 import { PokemonList } from '../interfaces/pokemon-list';
+import { PokemonType } from '../interfaces/pokemon-type';
 
 @Injectable({
   providedIn: 'root'
@@ -32,11 +33,6 @@ getInitialPokemons(){
     })
 }
 
-get initialPokemons(): PokemonData[] {
-  this.sortedPokemonList(this.pokemonInitialList);
-  return this.pokemonInitialList;
-}
-
 sortedPokemonList(arr: PokemonData[]){
   arr.sort((a, b) => {
     if (a.id > b.id) {
@@ -47,6 +43,26 @@ sortedPokemonList(arr: PokemonData[]){
     }
     // a must be equal to b
     return 0;
+  });
+}
+
+get initialPokemons(): PokemonData[] {
+  this.sortedPokemonList(this.pokemonInitialList);
+  return this.pokemonInitialList;
+}
+
+getPokemonsByType(type: string) {
+  const url: string = `${this.baseUrl}/type/${type}/`;
+  // this.pokemonsSearched = `Pokemones de tipo ${type}`;
+  this.http.get<PokemonType>(url).subscribe((pokemonType) => {
+  this.pokemonInitialList = [];
+
+    pokemonType.pokemon.forEach((pokemons) => {
+      this.getPokemonByUrl(pokemons.pokemon.url).subscribe((pokemon) => {
+        this.pokemonInitialList.push(pokemon);
+      });
+    });
+    this.sortedPokemonList(this.pokemonInitialList);
   });
 }
 
