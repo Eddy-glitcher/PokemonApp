@@ -7,8 +7,7 @@ import { PokemonFiltersComponent } from './components/pokemon-filters/pokemon-fi
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
-
-
+import { NgOptimizedImage } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,8 @@ import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.com
   imports: [
     CommonModule,
     PokedexRoutingModule,
-    CarouselModule
+    CarouselModule,
+    NgOptimizedImage
   ],
   exports:[
     HeaderComponent,
