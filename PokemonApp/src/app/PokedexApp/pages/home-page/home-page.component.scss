@@ -1,0 +1,31 @@
+@import '../../../../styles.scss';
+
+.pokemon-cards-container{
+  padding: 40px 0px;
+}
+
+.cards{
+  width: 100%;
+  @include mixin-display-flex(column,space-between);
+  flex-wrap: wrap;
+}
+
+
+.pokemon-card{
+  width: 100%;
+}
+
+@media (min-width: 767px) {
+
+  .cards{
+    width: 95%;
+    margin: 0px auto;
+    @include mixin-display-flex(row,space-evenly);
+    gap: 10px;
+  }
+
+  .pokemon-card{
+    width: 420px;
+  }
+
+}

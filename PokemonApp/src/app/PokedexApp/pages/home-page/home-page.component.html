@@ -1,0 +1,27 @@
+
+<section class="filter-container">
+  <app-pokemon-filters></app-pokemon-filters>
+</section>
+
+<section class="pokemon-cards-container">
+
+  <div class="loader-spinner" *ngIf="initialPokemons.length == 0 ; else pokemonsCards">
+    <!-- <app-pokemon-loader class="pokemon-spinner"></app-pokemon-loader> -->
+  </div>
+
+  <ng-template #pokemonsCards>
+    <div class="cards-container">
+      <!-- <div class="pokemons-type-name">
+        <h2>
+          {{getPokemonsType | titlecase}}
+        </h2>
+      </div> -->
+
+      <div class="cards">
+        <app-pokemon-card class="pokemon-card" *ngFor="let pokemon of initialPokemons" [pokemon]="pokemon"></app-pokemon-card>
+      </div>
+
+    </div>
+  </ng-template>
+
+</section>
