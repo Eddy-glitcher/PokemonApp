@@ -1,16 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
-
-// Colors
-
 $color-primary         :#E27C7C;
 $color-primary-light   :#F6D2D2;
 $color-secundary-light :#c99898;
 
-$color-white         : #fff;
-$color-grey          : rgb(222, 222, 222);
-$color-grey-light    : #d6d6d6;
-$color-dark-grey     : #636161;
-$color-black         : #000;
+$color-white             : #fff;
+$color-transparent-white : rgba(255, 255, 255, 0.178);
+
+$color-grey              : rgb(222, 222, 222);
+$color-grey-light        : #d6d6d6;
+$color-dark-grey         : #636161;
+$color-transparent-grey  : rgba(255, 255, 255, 0.247);
+$color-black             : #000;
+$color-transparent-black : rgba(0, 0, 0, 0.3);
 
 // Colors
 
