@@ -10,7 +10,7 @@
 
           <ng-container *ngFor="let filter of arrPokemonFilters">
             <ng-template carouselSlide>
-                <button class="filter-item {{filter.type}}-type"  (click)="activateFilterClass(filter.type)"  [ngClass]="activeFilterClass == filter.type ? 'filter-item-active' : '' ">
+                <button class="filter-item {{filter.type}}-type"  (click)="activateFilterClass(filter.type); getPokemonsByType(filter.type)"  [ngClass]="activeFilterClass == filter.type ? 'filter-item-active' : '' ">
                   <img ngSrc="{{filter.icon}}" width="100" height="100" alt="Filtro">
                   <span>{{filter.name}}</span>
                 </button>

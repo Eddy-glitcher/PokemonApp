@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PokemonFilters } from '../../interfaces/pokemon-filters';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { PokeApiService } from '../../services/poke-api.service';
 
 @Component({
   selector: 'app-pokemon-filters',
@@ -13,6 +14,10 @@ export class PokemonFiltersComponent {
 
   activateFilterClass(type : string){
     this.activeFilterClass = type;
+  }
+
+  getPokemonsByType(type : string){
+    this.pokeApiService.getPokemonsByType(type);
   }
 
   customOptions: OwlOptions = {
@@ -141,5 +146,5 @@ export class PokemonFiltersComponent {
 
   ]
 
-
+  constructor(private pokeApiService : PokeApiService){}
 }
