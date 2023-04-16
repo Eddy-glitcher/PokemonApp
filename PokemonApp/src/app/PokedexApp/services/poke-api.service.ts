@@ -14,13 +14,15 @@ baseUrl = environment.baseUrl;
 pokemonInitialList : PokemonData[] = [];
 currentTypePokemon : string = '';
 
+// To get pokemons by Url from pokeapi
 getPokemonByUrl(url: string) {
   return this.http.get<PokemonData>(url);
 }
 
+// To get the 20s firt pokemons from pokeapi
 getInitialPokemons(){
   const url :string = `${this.baseUrl}/pokemon/`;
-  this.currentTypePokemon = 'Pokemones Variados';
+  this.currentTypePokemon = 'Pokemones Variados';  // To set the currentTypePokemon property whit the received type
 
     this.http.get<PokemonList>(url).subscribe( (pokemonList) =>{
       this.pokemonInitialList = [];
@@ -30,10 +32,11 @@ getInitialPokemons(){
           });
         });
       });
-      
+
   this.sortedPokemonList(this.pokemonInitialList);
 }
 
+// To sorted the received pokemons list by id
 sortedPokemonList(pokemonList: PokemonData[]){
   pokemonList.sort((a, b) => {
     if (a.id > b.id) {
@@ -47,13 +50,15 @@ sortedPokemonList(pokemonList: PokemonData[]){
   });
 }
 
+// To return the pokemonInitialList to orhers components
 get initialPokemons(): PokemonData[] {
   return this.pokemonInitialList;
 }
 
+// To get pokemons from pokeapi by type
 getPokemonsByType(type: string) {
   const url: string = `${this.baseUrl}/type/${type}/`;
-  this.currentTypePokemon = `Pokemones de tipo ${type}`;
+  this.currentTypePokemon = `Pokemones de tipo ${type}`;  // To set the currentTypePokemon property whit the received type
 
     this.http.get<PokemonType>(url).subscribe((PokemonType) => {
     this.pokemonInitialList = [];
