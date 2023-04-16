@@ -6,7 +6,7 @@
 <section class="pokemon-cards-container">
 
   <div class="loader-spinner" *ngIf="initialPokemons.length == 0 ; else pokemonsCards">
-    <!-- <app-pokemon-loader class="pokemon-spinner"></app-pokemon-loader> -->
+    <app-pokemon-loader class="pokemon-spinner"></app-pokemon-loader>
   </div>
 
   <ng-template #pokemonsCards>
