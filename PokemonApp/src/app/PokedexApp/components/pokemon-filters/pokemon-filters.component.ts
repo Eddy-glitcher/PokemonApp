@@ -10,16 +10,20 @@ import { PokeApiService } from '../../services/poke-api.service';
 })
 export class PokemonFiltersComponent {
 
+  // Set the property for the toggle class
   activeFilterClass!: string;
 
+  // To set the toggle class when the type is active
   activateFilterClass(type : string){
     this.activeFilterClass = type;
   }
 
+  // To get the pokemons list by type from service
   getPokemonsByType(type : string){
     this.pokeApiService.getPokemonsByType(type);
   }
 
+  // Set the config for carousel
   customOptions: OwlOptions = {
     loop: false,
     mouseDrag: true,
@@ -52,6 +56,7 @@ export class PokemonFiltersComponent {
     nav: true
   }
 
+  // Set the data for filter items
   arrPokemonFilters : PokemonFilters[] = [
     {
       icon  : '../../../../assets/img/pokemon-types/fire.png',
@@ -146,5 +151,6 @@ export class PokemonFiltersComponent {
 
   ]
 
+  // Inject the poke-api service
   constructor(private pokeApiService : PokeApiService){}
 }
