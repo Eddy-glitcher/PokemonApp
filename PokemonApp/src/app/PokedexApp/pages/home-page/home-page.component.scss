@@ -9,17 +9,15 @@
 .loader-spinner{
   width: 100%;
   height: 90vh;
-  display: flex;
-  align-items: center;
+  @include mixin-display-flex(column,center);
 }
 
 .pokemon-spinner{
-  margin:auto ;
+  margin: 0px auto;
 }
 
 .cards-container{
   padding: 20px 0px;
-  margin-top: 0p;
 }
 
 .pokemons-type-name{
