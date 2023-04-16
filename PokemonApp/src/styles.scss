@@ -1,3 +1,4 @@
+// General Colors
 $color-primary         :#E27C7C;
 $color-primary-light   :#F6D2D2;
 $color-secundary-light :#c99898;
@@ -12,7 +13,7 @@ $color-transparent-grey  : rgba(255, 255, 255, 0.247);
 $color-black             : #000;
 $color-transparent-black : rgba(0, 0, 0, 0.3);
 
-// Colors
+// General Colors
 
 // Pokemon filters and Card Colors
 .fire-type{
@@ -71,14 +72,14 @@ $color-transparent-black : rgba(0, 0, 0, 0.3);
 }
 // Pokemon filters and Card Colors
 
-// Mixins
+// Display Flex mixin
 @mixin mixin-display-flex($flex-direction,$justify-content){
   display: flex;
   flex-direction: $flex-direction;
   justify-content: $justify-content;
   align-items: center;
 }
-// Mixins
+// Display Flex mixin
 
 .max-widht-content{
   width: 95%;
