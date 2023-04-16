@@ -12,6 +12,7 @@ export class PokeApiService {
 
 baseUrl = environment.baseUrl;
 pokemonInitialList : PokemonData[] = [];
+currentTypePokemon : string = '';
 
 constructor(private http : HttpClient) {
 }
@@ -21,7 +22,8 @@ getPokemonByUrl(url: string) {
 }
 
 getInitialPokemons(){
-  const url :string = `${this.baseUrl}/pokemon/`
+  const url :string = `${this.baseUrl}/pokemon/`;
+  this.currentTypePokemon = 'Pokemones Variados';
 
   this.http.get<PokemonList>(url).subscribe( (resp) =>{
     this.pokemonInitialList = [];
@@ -53,7 +55,7 @@ get initialPokemons(): PokemonData[] {
 
 getPokemonsByType(type: string) {
   const url: string = `${this.baseUrl}/type/${type}/`;
-  // this.pokemonsSearched = `Pokemones de tipo ${type}`;
+  this.currentTypePokemon = `Pokemones de tipo ${type}`;
   this.http.get<PokemonType>(url).subscribe((pokemonType) => {
   this.pokemonInitialList = [];
 

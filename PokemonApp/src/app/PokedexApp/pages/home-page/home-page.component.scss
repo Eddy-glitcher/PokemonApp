@@ -1,7 +1,27 @@
 @import '../../../../styles.scss';
 
 .pokemon-cards-container{
-  padding: 40px 0px;
+  padding: 20px 0px;
+  text-align: center;
+  background-color: $color-dark-grey;
+}
+
+.cards-container{
+  padding: 20px 0px;
+  margin-top: 0p;
+}
+
+.pokemons-type-name{
+  width: 95%;
+  margin: 0px auto;
+  background-color: $color-transparent-black;
+  border-radius: 15px 15px 0px 0px;
+  padding: 10px 0px;
+
+  h2{
+    font-size: 1.2rem;
+    color: $color-grey;
+  }
 }
 
 .cards{
@@ -9,8 +29,6 @@
   @include mixin-display-flex(column,space-between);
   flex-wrap: wrap;
 }
-
-
 .pokemon-card{
   width: 100%;
 }
@@ -26,6 +44,12 @@
 
   .pokemon-card{
     width: 420px;
+  }
+
+  .pokemons-type-name{
+    h2{
+      font-size: 1.8rem;
+    }
   }
 
 }

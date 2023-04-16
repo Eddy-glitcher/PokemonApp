@@ -11,11 +11,11 @@
 
   <ng-template #pokemonsCards>
     <div class="cards-container">
-      <!-- <div class="pokemons-type-name">
+      <div class="pokemons-type-name">
         <h2>
-          {{getPokemonsType | titlecase}}
+          {{getPokemonsType | uppercase}}
         </h2>
-      </div> -->
+      </div>
 
       <div class="cards">
         <app-pokemon-card class="pokemon-card" *ngFor="let pokemon of initialPokemons" [pokemon]="pokemon"></app-pokemon-card>

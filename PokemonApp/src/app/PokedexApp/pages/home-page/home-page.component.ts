@@ -12,6 +12,10 @@ export class HomePageComponent {
     return this.pokeApiService.initialPokemons;
   }
 
+  get getPokemonsType(): string{
+    return this.pokeApiService.currentTypePokemon;
+  }
+
   constructor(private pokeApiService : PokeApiService){
     this.pokeApiService.getInitialPokemons();
   }
