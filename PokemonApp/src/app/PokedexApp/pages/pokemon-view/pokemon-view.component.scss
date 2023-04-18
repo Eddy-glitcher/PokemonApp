@@ -1,0 +1,164 @@
+@import '../../../../styles.scss';
+
+h2{
+  margin: 0px;
+}
+
+.loader-spinner{
+  width: 100%;
+  height: 90vh;
+  @include mixin-display-flex(column,center);
+}
+
+.pokemon-container{
+  text-align: center;
+}
+
+.pokemon-view{
+  padding: 10px;
+}
+
+.pokemon-info{
+  @include mixin-display-flex(row, space-between);
+  font-size: 1.2rem;
+  color: $color-white;
+}
+
+.pokemon-back-button{
+  background-color: transparent;
+  border: none;
+
+  i{
+    font-size: 1.3rem;
+    color: $color-white;
+
+    &:hover{
+      color: $color-grey-light;
+    }
+  }
+}
+
+.pokemon-id{
+  color: $color-grey-light;
+}
+
+.pokemon-img{
+  background: url('../../../../assets/img/pokemon-background.png') no-repeat center;
+  background-size: contain;
+  width: 200px;
+  height: 200px;
+  margin: 40px auto;
+
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.pokemon-stats{
+  @include mixin-display-flex(column, center);
+  gap: 20px;
+  background-color: $color-white;
+  border-radius: 20px 20px 0px 0px;
+  position: relative;
+  bottom: 20px;
+  padding: 15px 5px;
+}
+
+.pokemon-type-list{
+  @include mixin-display-flex(row, center);
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px;
+  padding: 0px;
+  list-style: none;
+
+  li{
+    border-radius: 15px;
+    padding: 20px;
+    width: 60px;
+  }
+}
+
+.pokemon-weigth-heigth{
+  @include mixin-display-flex(row,center);
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0px;
+
+  .heigth,.weigth{
+    width: 80px;
+    background-color: $color-transparent-black;
+    padding: 30px 15px;
+    border-radius: 10px;
+
+    span{
+      display: block;
+
+      &:first-child{
+        color: $color-grey;
+      }
+    }
+  }
+}
+
+.pokemon-stats-info{
+  width: 100%;
+}
+
+.pokemon-stats-bars{
+  @include mixin-display-flex(column, space-between);
+  gap: 8px;
+  margin: 20px 0px;
+
+  .pokemon-bar-stat{
+    @include mixin-display-flex(row, space-between);
+    align-items: flex-start;
+    width: 100%;
+  }
+}
+
+.stat-name{
+  width: 50%;
+  text-align: start;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.progress-bar{
+  background-color: $color-grey-light;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 70%;
+
+  .progress-bar-stat{
+    border-radius: 15px;
+    width: 50%;
+    text-align: center;
+  }
+}
+
+// Stat bar colors
+.stat-hp{
+  background-color: #84FC4C;
+}
+
+.stat-attack{
+  background-color: #FF5151;
+}
+
+.stat-defense{
+  background: #51E0FF;
+}
+
+.stat-special-attack{
+  background-color: #FFE351;
+}
+
+.stat-special-defense{
+  background-color: #5182FF;
+}
+.stat-speed{
+  background-color: #FF51D9;
+}
+// Stat bar colors

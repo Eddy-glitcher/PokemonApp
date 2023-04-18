@@ -9,6 +9,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { NgOptimizedImage } from '@angular/common';
 import { PokemonLoaderComponent } from './components/pokemon-loader/pokemon-loader.component';
+import { PokemonViewComponent } from './pages/pokemon-view/pokemon-view.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PokemonLoaderComponent } from './components/pokemon-loader/pokemon-load
     PokemonFiltersComponent,
     HomePageComponent,
     PokemonCardComponent,
-    PokemonLoaderComponent
+    PokemonLoaderComponent,
+    PokemonViewComponent
   ],
   imports: [
     CommonModule,
