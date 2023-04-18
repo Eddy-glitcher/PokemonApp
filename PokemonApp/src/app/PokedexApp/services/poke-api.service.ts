@@ -14,6 +14,12 @@ baseUrl = environment.baseUrl;
 pokemonInitialList : PokemonData[] = [];
 currentTypePokemon : string = '';
 
+// To get pokemons by id  from pokeapi
+getPokeomnById(id: number){
+  const url = `${this.baseUrl}/pokemon/${id}`;
+  return this.http.get<PokemonData>(url);
+}
+
 // To get pokemons by Url from pokeapi
 getPokemonByUrl(url: string) {
   return this.http.get<PokemonData>(url);
