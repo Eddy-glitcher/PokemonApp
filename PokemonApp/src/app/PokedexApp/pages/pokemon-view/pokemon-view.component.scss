@@ -12,16 +12,17 @@ h2{
 
 .pokemon-container{
   text-align: center;
-}
-
-.pokemon-view{
-  padding: 10px;
+  @include mixin-display-flex(column,center);
+  align-items: normal;
 }
 
 .pokemon-info{
   @include mixin-display-flex(row, space-between);
   font-size: 1.2rem;
   color: $color-white;
+  background-color: $color-transparent-white;
+  padding: 10px;
+
 }
 
 .pokemon-back-button{
@@ -29,6 +30,9 @@ h2{
   border: none;
 
   i{
+    background-color: $color-transparent-grey;
+    border-radius: 50%;
+    padding: 5px;
     font-size: 1.3rem;
     color: $color-white;
 
@@ -109,7 +113,8 @@ h2{
 .pokemon-stats-bars{
   @include mixin-display-flex(column, space-between);
   gap: 8px;
-  margin: 20px 0px;
+  margin: 20px auto;
+  max-width: 600px;
 
   .pokemon-bar-stat{
     @include mixin-display-flex(row, space-between);
@@ -119,7 +124,7 @@ h2{
 }
 
 .stat-name{
-  width: 50%;
+  width: 35%;
   text-align: start;
   font-size: 0.8rem;
   font-weight: bold;
@@ -129,13 +134,21 @@ h2{
   background-color: $color-grey-light;
   border-radius: 15px;
   overflow: hidden;
-  width: 70%;
+  width: 255px;
+  position: relative;
 
   .progress-bar-stat{
+    padding: 10px;
     border-radius: 15px;
-    width: 50%;
-    text-align: center;
   }
+
+  span{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
 }
 
 // Stat bar colors
@@ -162,3 +175,64 @@ h2{
   background-color: #FF51D9;
 }
 // Stat bar colors
+
+
+@media (min-width: 767px) {
+
+  .pokemon-container{
+    text-align: center;
+    @include mixin-display-flex(row,center);
+    align-items: unset;
+    height: 90vh;
+  }
+
+  .pokemon-stats{
+    @include mixin-display-flex(column, space-between);
+    border-radius: 0px;
+    position: unset;
+  }
+
+
+  .pokemon-view{
+    width: 50%;
+    margin: 0px;
+  }
+
+  .pokemon-info,i{
+    font-size: 1.4rem;
+
+    i{
+      font-size: 2rem;
+      padding: 10px;
+    }
+  }
+
+  .pokemon-image{
+    height: 90%;
+    @include mixin-display-flex(column,center);
+    align-items: center;
+  }
+
+  .pokemon-img{
+    width: 300px;
+    height: 300px;
+  }
+
+  .pokemon-stats-bars{
+    .pokemon-bar-stat{
+      @include mixin-display-flex(row, space-evenly);
+    }
+  }
+
+  .pokemon-stats{
+    position: relative;
+    bottom: 0px;
+    width: 50%;
+    padding: 20px;
+  }
+
+  .stat-name{
+    font-size: 1rem;
+  }
+
+}
