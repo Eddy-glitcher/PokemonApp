@@ -20,6 +20,12 @@ getPokeomnById(id: number){
   return this.http.get<PokemonData>(url);
 }
 
+// To get pokemons by name from pokeapi
+getPokeomnByName(name: string){
+  const url = `${this.baseUrl}/pokemon/${name}`;
+  return this.http.get<any>(url);
+}
+
 // To get pokemons by Url from pokeapi
 getPokemonByUrl(url: string) {
   return this.http.get<PokemonData>(url);
