@@ -15,13 +15,13 @@ pokemonInitialList : PokemonData[] = [];
 currentTypePokemon : string = '';
 
 // To get pokemons by id  from pokeapi
-getPokeomnById(id: number){
+getPokemonById(id: number){
   const url = `${this.baseUrl}/pokemon/${id}`;
   return this.http.get<PokemonData>(url);
 }
 
 // To get pokemons by name from pokeapi
-getPokeomnByName(name: string){
+getPokemonByName(name: string){
   const url = `${this.baseUrl}/pokemon/${name}`;
   return this.http.get<any>(url);
 }
