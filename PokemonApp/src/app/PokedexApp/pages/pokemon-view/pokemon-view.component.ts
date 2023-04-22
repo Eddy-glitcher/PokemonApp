@@ -1,7 +1,7 @@
 import { AfterViewChecked, Component, ElementRef, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { PokeApiService } from '../../services/poke-api.service';
-import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Observable, map, switchMap, tap } from 'rxjs';
 import { PokemonData } from '../../interfaces/pokemon-data';
 
 @Component({
@@ -20,9 +20,9 @@ export class PokemonViewComponent implements OnInit, AfterViewChecked {
   constructor( private pokeService: PokeApiService, private activatedRoute: ActivatedRoute, private renderer2 : Renderer2){}
 
   ngOnInit(): void {
-    // To get the pokemon by Id from pokeapi service, using the url params
+    // To get the pokemon by name from pokeapi service, using the url params
     this.activatedRoute.params.pipe(
-      switchMap( ({id}) => this.pokeService.getPokeomnById(Number(id)))
+      switchMap( ({name}) => this.pokeService.getPokemonByName((name)))
       ).subscribe(pokemon => {
         this.pokemon = [];
         this.pokemon.push(pokemon);
