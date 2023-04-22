@@ -12,7 +12,7 @@ const routes: Routes = [
         component: HomePageComponent
       },
       {
-        path: 'pokemon/:id',
+        path: 'pokemon/:name',
         component: PokemonViewComponent
       },
       {
