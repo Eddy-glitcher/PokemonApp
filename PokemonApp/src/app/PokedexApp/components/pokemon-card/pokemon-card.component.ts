@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { PokemonData } from '../../interfaces/pokemon-data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -9,5 +10,10 @@ import { PokemonData } from '../../interfaces/pokemon-data';
 export class PokemonCardComponent {
 
   @Input() pokemon!: PokemonData;
+  constructor(private router : Router){}
+
+  goToPokemonView(pokemonName : string){
+    this.router.navigate(['Pokedex/pokemon', pokemonName]);
+  }
 
 }
