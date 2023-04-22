@@ -36,21 +36,20 @@ getInitialPokemons(){
   const url :string = `${this.baseUrl}/pokemon/`;
   this.currentTypePokemon = 'Pokemones Variados';  // To set the currentTypePokemon property whit the received type
 
-    this.http.get<PokemonList>(url).subscribe( (pokemonList) =>{
-      this.pokemonInitialList = [];
-        pokemonList.results.forEach((pokemon) => {
-          this.getPokemonByUrl(pokemon.url).subscribe((pokemon) => {
-            this.pokemonInitialList.push(pokemon);
-          });
+  this.http.get<PokemonList>(url).subscribe( (pokemonList) =>{
+    this.pokemonInitialList = [];
+      pokemonList.results.forEach((pokemon) => {
+        this.getPokemonByUrl(pokemon.url).subscribe((pokemon) => {
+          this.pokemonInitialList.push(pokemon);
         });
       });
-
-  this.sortedPokemonList(this.pokemonInitialList);
+    });
 }
 
-// To sorted the received pokemons list by id
-sortedPokemonList(pokemonList: PokemonData[]){
-  pokemonList.sort((a, b) => {
+// To return the pokemonInitialList to orhers components
+get initialPokemons(): PokemonData[] {
+  // To sorted the received pokemons list by id
+  return this.pokemonInitialList.sort((a, b) => {
     if (a.id > b.id) {
       return 1;
     }
@@ -62,26 +61,19 @@ sortedPokemonList(pokemonList: PokemonData[]){
   });
 }
 
-// To return the pokemonInitialList to orhers components
-get initialPokemons(): PokemonData[] {
-  return this.pokemonInitialList;
-}
-
 // To get pokemons from pokeapi by type
 getPokemonsByType(type: string) {
   const url: string = `${this.baseUrl}/type/${type}/`;
   this.currentTypePokemon = `Pokemones de tipo ${type}`;  // To set the currentTypePokemon property whit the received type
 
-    this.http.get<PokemonType>(url).subscribe((PokemonType) => {
-    this.pokemonInitialList = [];
-      PokemonType.pokemon.forEach((pokemonsList) => {
-        this.getPokemonByUrl(pokemonsList.pokemon.url).subscribe((pokemon) => {
-          this.pokemonInitialList.push(pokemon);
-        });
+  this.http.get<PokemonType>(url).subscribe((PokemonType) => {
+  this.pokemonInitialList = [];
+    PokemonType.pokemon.forEach((pokemonsList) => {
+      this.getPokemonByUrl(pokemonsList.pokemon.url).subscribe((pokemon) => {
+        this.pokemonInitialList.push(pokemon);
       });
     });
-
-  this.sortedPokemonList(this.pokemonInitialList);
+  });
 }
 
 constructor(private http : HttpClient) {}
