@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { PokemonData } from '../interfaces/pokemon-data';
 import { PokemonList } from '../interfaces/pokemon-list';
 import { PokemonType } from '../interfaces/pokemon-type';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,24 +16,24 @@ pokemonInitialList : PokemonData[] = [];
 currentTypePokemon : string = '';
 
 // To get pokemons by id  from pokeapi
-getPokemonById(id: number){
+getPokemonById(id: number): Observable<PokemonData>{
   const url = `${this.baseUrl}/pokemon/${id}`;
   return this.http.get<PokemonData>(url);
 }
 
 // To get pokemons by name from pokeapi
-getPokemonByName(name: string){
+getPokemonByName(name: string): Observable<PokemonData>{
   const url = `${this.baseUrl}/pokemon/${name}`;
-  return this.http.get<any>(url);
+  return this.http.get<PokemonData>(url);
 }
 
 // To get pokemons by Url from pokeapi
-getPokemonByUrl(url: string) {
+getPokemonByUrl(url: string): Observable<PokemonData>{
   return this.http.get<PokemonData>(url);
 }
 
 // To get the 20s firt pokemons from pokeapi
-getInitialPokemons(){
+getInitialPokemons(): void{
   const url :string = `${this.baseUrl}/pokemon/`;
   this.currentTypePokemon = 'Pokemones Variados';  // To set the currentTypePokemon property whit the received type
 
@@ -47,7 +48,7 @@ getInitialPokemons(){
 }
 
 // To return the pokemonInitialList to orhers components
-get initialPokemons(): PokemonData[] {
+get initialPokemons(): PokemonData[]{
   // To sorted the received pokemons list by id
   return this.pokemonInitialList.sort((a, b) => {
     if (a.id > b.id) {
@@ -62,7 +63,7 @@ get initialPokemons(): PokemonData[] {
 }
 
 // To get pokemons from pokeapi by type
-getPokemonsByType(type: string) {
+getPokemonsByType(type: string): void{
   const url: string = `${this.baseUrl}/type/${type}/`;
   this.currentTypePokemon = `Pokemones de tipo ${type}`;  // To set the currentTypePokemon property whit the received type
 
