@@ -14,9 +14,10 @@ export class PokemonFiltersComponent {
   activeFilterClass: string = this.pokeApiService.activeFilterClass;
 
   // To set the toggle class when the type is active
-  activateFilterClass(type : string){
+  activateFilterClass(type : string,index : number){
     this.activeFilterClass = type;
     this.pokeApiService.activeFilterClass = type;
+    this.pokeApiService.currentPositionFilter = index;
   }
 
   // To get the pokemons list by type from service
@@ -27,6 +28,7 @@ export class PokemonFiltersComponent {
   // Set the config for carousel
   customOptions: OwlOptions = {
     loop: false,
+    startPosition: this.pokeApiService.currentPositionFilter,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: false,

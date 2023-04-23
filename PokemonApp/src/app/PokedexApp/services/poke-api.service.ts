@@ -15,6 +15,7 @@ baseUrl = environment.baseUrl;
 pokemonInitialList : PokemonData[] = [];
 currentTypePokemon : string = '';
 activeFilterClass : string = '';
+currentPositionFilter : number = 0;
 
 // To get pokemons by id  from pokeapi
 getPokemonById(id: number): Observable<PokemonData>{
