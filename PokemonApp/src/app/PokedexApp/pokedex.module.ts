@@ -11,6 +11,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { PokemonLoaderComponent } from './components/pokemon-loader/pokemon-loader.component';
 import { PokemonViewComponent } from './pages/pokemon-view/pokemon-view.component';
 import { HeightWeightPipe } from './pipes/height-weight.pipe';
+import { DefaultpokemonImagePipe } from './pipes/defaultpokemon-image.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HeightWeightPipe } from './pipes/height-weight.pipe';
     PokemonCardComponent,
     PokemonLoaderComponent,
     PokemonViewComponent,
-    HeightWeightPipe
+    HeightWeightPipe,
+    DefaultpokemonImagePipe
   ],
   imports: [
     CommonModule,
