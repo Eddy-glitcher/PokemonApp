@@ -10,6 +10,7 @@ import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.com
 import { NgOptimizedImage } from '@angular/common';
 import { PokemonLoaderComponent } from './components/pokemon-loader/pokemon-loader.component';
 import { PokemonViewComponent } from './pages/pokemon-view/pokemon-view.component';
+import { HeightWeightPipe } from './pipes/height-weight.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PokemonViewComponent } from './pages/pokemon-view/pokemon-view.componen
     HomePageComponent,
     PokemonCardComponent,
     PokemonLoaderComponent,
-    PokemonViewComponent
+    PokemonViewComponent,
+    HeightWeightPipe
   ],
   imports: [
     CommonModule,
