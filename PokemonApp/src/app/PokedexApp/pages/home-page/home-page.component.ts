@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PokeApiService } from '../../services/poke-api.service';
+import { PokemonData } from '../../interfaces/pokemon-data';
 
 @Component({
   selector: 'app-home-page',
@@ -9,7 +10,7 @@ import { PokeApiService } from '../../services/poke-api.service';
 export class HomePageComponent {
 
   // To get the initialPpokemons list from poke-api service
-  get initialPokemons(){
+  get initialPokemons(): PokemonData[]{
     return this.pokeApiService.initialPokemons;
   }
 
