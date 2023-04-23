@@ -77,6 +77,8 @@ getPokemonsByType(type: string): void{
   });
 }
 
-constructor(private http : HttpClient) {}
+constructor(private http : HttpClient) {
+  this.getInitialPokemons();
+}
 
 }

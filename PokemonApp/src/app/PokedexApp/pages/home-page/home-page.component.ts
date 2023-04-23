@@ -20,7 +20,5 @@ export class HomePageComponent {
   }
 
   // Inject of the poke-api service
-  constructor(private pokeApiService : PokeApiService){
-    this.pokeApiService.getInitialPokemons();
-  }
+  constructor(private pokeApiService : PokeApiService){}
 }
