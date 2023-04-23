@@ -11,11 +11,12 @@ import { PokeApiService } from '../../services/poke-api.service';
 export class PokemonFiltersComponent {
 
   // Set the property for the toggle class
-  activeFilterClass!: string;
+  activeFilterClass: string = this.pokeApiService.activeFilterClass;
 
   // To set the toggle class when the type is active
   activateFilterClass(type : string){
     this.activeFilterClass = type;
+    this.pokeApiService.activeFilterClass = type;
   }
 
   // To get the pokemons list by type from service

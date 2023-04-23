@@ -14,6 +14,7 @@ export class PokeApiService {
 baseUrl = environment.baseUrl;
 pokemonInitialList : PokemonData[] = [];
 currentTypePokemon : string = '';
+activeFilterClass : string = '';
 
 // To get pokemons by id  from pokeapi
 getPokemonById(id: number): Observable<PokemonData>{
