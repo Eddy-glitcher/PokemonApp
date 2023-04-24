@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DefaultpokemonImagePipe implements PipeTransform {
 
   transform(image: string): string {
-    if (!image) {
+    if (image == null) {
       return '../../../assets/img/pokeball.png';
     }
     return image;
