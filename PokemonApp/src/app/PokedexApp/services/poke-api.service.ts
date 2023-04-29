@@ -79,6 +79,11 @@ getPokemonsByType(type: string): void{
   });
 }
 
+getAllPokemonsNameList(): Observable<PokemonList>{
+  const url: string = `https://pokeapi.co/api/v2/pokemon?limit=1281`;
+  return this.http.get<PokemonList>(url);
+}
+
 constructor(private http : HttpClient) {
   this.getInitialPokemons();
 }
