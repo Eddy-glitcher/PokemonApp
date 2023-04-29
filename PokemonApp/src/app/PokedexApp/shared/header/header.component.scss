@@ -20,75 +20,54 @@
 .search-bar{
   width: 100%;
   max-width: 450px;
-  padding-left: 5px;
-  border-radius: 5px;
-  @include mixin-display-flex(row,space-between);
-  font-size: 16px;
-  background-color: $color-primary-light;
-  overflow: hidden;
-}
+  @include mixin-display-flex(column,space-between);
+  position: relative;
 
-button{
-  text-align: center;
-  background-color: $color-white;
-  padding: 10px 15px;
-  border: none;
-  cursor: pointer;
-
-  &:hover{
+  .search-data{
+    width: 100%;
     background-color: $color-grey;
+    position: absolute;
+    top: 40px;
+    z-index: 2;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .search-item{
+      color: $color-dark-grey;
+    }
+
+    .search-item-error{
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      color: $color-red;
+      &:hover{
+        cursor: auto;
+        background-color: inherit;
+      }
+    }
   }
 
-  i{
-    color:  $color-dark-grey;
+  ul{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  li{
+    padding: 10px;
+
+    &:hover{
+      background-color: $color-transparent-black;
+      cursor: pointer;
+    }
   }
 }
 
-.form-search{
+.input-pokemon{
   width: 100%;
-}
-
-.form-search input{
-  width: 100%;
-  background-color: transparent;
-  border: none;
-  color: $color-dark-grey;
-  outline: none;
-  &:focus{
-    color: $color-black;
-    text-shadow: 1px 0px 10px $color-white;
-    animation: colorchange 20s infinite linear alternate;
-  }
-
-  @keyframes colorchange {
-    0%{
-      color: rgb(176, 2, 66);
-      text-shadow: 0px 0px 10px rgb(176, 2, 66);
-    }
-
-    20%{
-      color: rgb(176, 2, 156);
-      text-shadow: 0px 0px 10px rgb(176, 2, 156);
-
-    }
-    40%{
-      color: rgb(121, 2, 176);
-      text-shadow: 1px 0px 10px rgb(121, 2, 176);
-    }
-    60%{
-      color: rgb(95, 2, 176);
-      text-shadow: 1px 0px 10px rgb(95, 2, 176);
-    }
-    80%{
-      color: rgb(40, 2, 176);
-      text-shadow: 1px 0px 10px rgb(40, 2, 176);
-    }
-    100%{
-      color: rgb(2, 77, 176);
-      text-shadow: 1px 0px 10px rgb(2, 77, 176);
-    }
-  }
-
 }
 
 @media (min-width: 650px) {

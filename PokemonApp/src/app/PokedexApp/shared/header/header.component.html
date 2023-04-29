@@ -1,17 +1,38 @@
 <div class="header-container">
-
   <div class="header-logo">
-    <img ngSrc="../../../../assets/img/Logo.png" width="100" height="100" priority alt="Logo Pokedex" class="logo-img">
+    <img
+      ngSrc="../../../../assets/img/Logo.png"
+      width="100"
+      height="100"
+      priority
+      alt="Logo Pokedex"
+      class="logo-img"
+    />
   </div>
 
-  <div class="search-bar">
-    <form action="" class="form-search">
-      <input type="text" placeholder="Buscar Pokémon..." maxlength="20">
-    </form>
+  <div class="search-bar" #divElement>
+    <app-pokemon-input
+      [selectedPokemon]="selectedPokemon"
+      (onSearchPokemon)="searchPokemon($event)"
+      (onDisplayOptions)="displayPokemonOptions($event)"
+      (onDebounce)="showSuggestedPokemons($event)"
+      class="input-pokemon"
+    ></app-pokemon-input>
 
-    <button>
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </button>
+    <div class="search-data" *ngIf="displaySuggestedOptions">
+      <ul>
+        <li
+          *ngFor="let pokemon of suggestedPokemons.slice(0, 4)"
+          (click)="setPokemonName(pokemon.name)"
+          class="search-item"
+        >
+          {{ pokemon.name | titlecase }}
+        </li>
+        <li *ngIf="showErrorMessage()" class="search-item search-item-error">
+          <span> Pokemon no encontrado</span>
+          <i class="fa-solid fa-circle-exclamation"></i>
+        </li>
+      </ul>
+    </div>
   </div>
-
 </div>
