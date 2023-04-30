@@ -10,7 +10,7 @@ $color-grey              : rgb(222, 222, 222);
 $color-grey-light        : #d6d6d6;
 $color-dark-grey         : #636161;
 $color-transparent-grey  : rgba(157, 157, 157, 0.247);
-$color-black             : #000;
+$color-black             : rgb(15, 15, 15);
 $color-transparent-black : rgba(0, 0, 0, 0.3);
 $color-red               : rgb(255, 0, 0);
 
@@ -81,6 +81,10 @@ $color-red               : rgb(255, 0, 0);
   align-items: center;
 }
 // Display Flex mixin
+
+body{
+  background-color: $color-black;
+}
 
 .max-widht-content{
   width: 95%;
