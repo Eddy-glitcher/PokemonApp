@@ -41,7 +41,7 @@ export class PokemonFiltersComponent {
         items: 2
       },
       240:{
-        items: 2
+        items: 3
       },
       300:{
         items: 3
@@ -50,7 +50,7 @@ export class PokemonFiltersComponent {
         items: 5
       },
       740: {
-        items: 6
+        items: 7
       },
       940: {
         items: 10
