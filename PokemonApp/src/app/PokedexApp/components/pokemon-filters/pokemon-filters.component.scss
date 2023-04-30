@@ -4,7 +4,7 @@
   width: 100%;
   margin: 0px auto;
   padding: 5px 0px;
-  background-color: $color-secundary-light;
+  background-color: $color-transparent-grey;
 
   .max-widht-content{
     width: 98%;
@@ -15,30 +15,36 @@
   text-align: center;
 }
 
+.title-filter{
+  color: $color-white;
+}
+
 .filter-items{
   padding: 10px 0px;
 }
 
 .filter-item{
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   border-radius:10px;
   text-align: center;
   padding: 5px 0px;
-  width: 80px;
+  opacity: 0.6;
+  width: 70px;
+  color: $color-black;
 
   img{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     margin: 5px auto;
   }
 
   &:hover{
     opacity: 0.8;
-    border: 1px solid $color-white;
   }
 }
 
 .filter-item-active{
-  border: 1px solid $color-white;
-  box-shadow: 0px 0px 5px $color-grey-light;
+  opacity: 1;
+  border: 2px solid $color-grey-light;
+  box-shadow: 0px 0px 2px $color-grey;
 }
