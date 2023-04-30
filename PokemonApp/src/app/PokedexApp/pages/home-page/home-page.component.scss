@@ -3,7 +3,7 @@
 .pokemon-cards-container{
   padding: 20px 0px;
   text-align: center;
-  background-color: $color-dark-grey;
+  background-color: $color-black;
 }
 
 .loader-spinner{
@@ -21,15 +21,15 @@
 }
 
 .pokemons-type-name{
-  width: 95%;
+  width: 100%;
   margin: 0px auto;
-  background-color: $color-transparent-black;
+  background-color: $color-transparent-white;
   border-radius: 15px 15px 0px 0px;
-  padding: 10px 0px;
+  padding: 1px 0px;
 
   h2{
     font-size: 1.2rem;
-    color: $color-grey;
+    color: $color-white;
   }
 }
 
@@ -37,12 +37,17 @@
   width: 100%;
   @include mixin-display-flex(column,space-between);
   flex-wrap: wrap;
+  background-color: $color-transparent-grey;
 }
 .pokemon-card{
-  width: 100%;
+  width: 90%;
 }
 
 @media (min-width: 767px) {
+
+  .pokemons-type-name{
+    width: 95%;
+  }
 
   .cards{
     width: 95%;
@@ -52,7 +57,7 @@
   }
 
   .pokemon-card{
-    width: 420px;
+    width: 460px;
   }
 
   .pokemons-type-name{
