@@ -1,82 +1,16 @@
 @import '../../../../styles.scss';
 
 .header-container{
-  padding: 10px;
-  @include mixin-display-flex(column,space-between);
-  gap: 10px;
   background-color: $color-primary;
+  padding: 10px 0px;
 }
 
 .header-logo{
   width: 100%;
   max-width: 350px;
-  text-align: center;
+  margin: 0px auto;
 
   .logo-img{
     width: 100%;
-  }
-}
-
-.search-bar{
-  width: 100%;
-  max-width: 450px;
-  @include mixin-display-flex(column,space-between);
-  position: relative;
-
-  .search-data{
-    width: 100%;
-    background-color: $color-grey;
-    position: absolute;
-    top: 40px;
-    z-index: 2;
-    border-radius: 5px;
-    overflow: hidden;
-
-    .search-item{
-      color: $color-dark-grey;
-    }
-
-    .search-item-error{
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      color: $color-red;
-      &:hover{
-        cursor: auto;
-        background-color: inherit;
-      }
-    }
-  }
-
-  ul{
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-  }
-
-  li{
-    padding: 10px;
-
-    &:hover{
-      background-color: $color-transparent-black;
-      cursor: pointer;
-    }
-  }
-}
-
-.input-pokemon{
-  width: 100%;
-}
-
-@media (min-width: 650px) {
-
-  .header-container{
-    @include mixin-display-flex(row,space-between);
-  }
-
-  .header-logo{
-    order: 2;
   }
 }

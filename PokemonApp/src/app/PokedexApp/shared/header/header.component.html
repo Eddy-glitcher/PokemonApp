@@ -9,30 +9,4 @@
       class="logo-img"
     />
   </div>
-
-  <div class="search-bar" #divElement>
-    <app-pokemon-input
-      [selectedPokemon]="selectedPokemon"
-      (onSearchPokemon)="searchPokemon($event)"
-      (onDisplayOptions)="displayPokemonOptions($event)"
-      (onDebounce)="showSuggestedPokemons($event)"
-      class="input-pokemon"
-    ></app-pokemon-input>
-
-    <div class="search-data" *ngIf="displaySuggestedOptions">
-      <ul>
-        <li
-          *ngFor="let pokemon of suggestedPokemons.slice(0, 4)"
-          (click)="setPokemonName(pokemon.name)"
-          class="search-item"
-        >
-          {{ pokemon.name | titlecase }}
-        </li>
-        <li *ngIf="showErrorMessage()" class="search-item search-item-error">
-          <span> Pokemon no encontrado</span>
-          <i class="fa-solid fa-circle-exclamation"></i>
-        </li>
-      </ul>
-    </div>
-  </div>
 </div>
