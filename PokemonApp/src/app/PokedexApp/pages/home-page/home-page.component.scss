@@ -1,5 +1,82 @@
 @import '../../../../styles.scss';
 
+.search-bar-container{
+  color: $color-white;
+  padding: 10px 20px;
+  background-color: $color-transparent-grey;
+}
+
+.input-container{
+  @include mixin-display-flex(column,center);
+  gap: 10px;
+  margin: 0px auto;
+}
+
+.search-bar-title{
+  p{
+    text-align: left;
+    margin: 5px 0px;
+    font-size: 1.5rem;
+  }
+}
+
+.search-bar{
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+
+.search-bar-message{
+  @include mixin-display-flex(row,center);
+  background-color: $color-secundary-light;
+  border-radius: 10px;
+  padding: 0px 10px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.search-data{
+  width: inherit;
+  background-color: $color-grey;
+  position: absolute;
+  z-index: 2;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 2px;
+
+  .search-item{
+    color: $color-dark-grey;
+  }
+
+  .search-item-error{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: $color-red;
+    &:hover{
+      cursor: auto;
+      background-color: inherit;
+    }
+  }
+
+  ul{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  li{
+    padding: 10px;
+
+    &:hover{
+      background-color: $color-transparent-black;
+      cursor: pointer;
+    }
+  }
+}
+
 .pokemon-cards-container{
   padding: 20px 0px;
   text-align: center;
@@ -44,6 +121,15 @@
 }
 
 @media (min-width: 767px) {
+
+  .input-container{
+    @include mixin-display-flex(row,space-between);
+    align-items: normal;
+  }
+
+  .input-component{
+    width: 70%;
+  }
 
   .pokemons-type-name{
     width: 95%;
