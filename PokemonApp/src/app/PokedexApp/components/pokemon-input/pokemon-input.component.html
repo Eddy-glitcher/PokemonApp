@@ -1,0 +1,23 @@
+<div class="search-bar">
+  <form
+    action=""
+    class="form-search"
+    (ngSubmit)="searchPokemon(selectedPokemon)"
+    autocomplete="off"
+  >
+    <input
+      type="text"
+      placeholder="Buscar Pokémon..."
+      maxlength="20"
+      name="selectedPokemon"
+      [(ngModel)]="selectedPokemon"
+      (input)="keyPressed()"
+      (focus)="displayPokemonOptions(true)"
+      #searchedValue
+    />
+  </form>
+
+  <button (click)="searchPokemon(selectedPokemon)">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+</div>

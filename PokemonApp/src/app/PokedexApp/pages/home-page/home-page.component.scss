@@ -1,0 +1,155 @@
+@import '../../../../styles.scss';
+
+.search-bar-container{
+  color: $color-white;
+  padding: 10px 20px;
+  background-color: $color-transparent-grey;
+}
+
+.input-container{
+  @include mixin-display-flex(column,center);
+  gap: 10px;
+  margin: 0px auto;
+}
+
+.search-bar-title{
+  p{
+    text-align: left;
+    margin: 5px 0px;
+    font-size: 1.5rem;
+  }
+}
+
+.search-bar{
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+
+.search-bar-message{
+  @include mixin-display-flex(row,center);
+  background-color: $color-secundary-light;
+  border-radius: 10px;
+  padding: 0px 10px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.search-data{
+  width: inherit;
+  background-color: $color-grey;
+  position: absolute;
+  z-index: 2;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 2px;
+
+  .search-item{
+    color: $color-dark-grey;
+  }
+
+  .search-item-error{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: $color-red;
+    &:hover{
+      cursor: auto;
+      background-color: inherit;
+    }
+  }
+
+  ul{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  li{
+    padding: 10px;
+
+    &:hover{
+      background-color: $color-transparent-black;
+      cursor: pointer;
+    }
+  }
+}
+
+.pokemon-cards-container{
+  padding: 20px 0px;
+  text-align: center;
+  background-color: $color-black;
+}
+
+.loader-spinner{
+  width: 100%;
+  height: 90vh;
+  @include mixin-display-flex(column,center);
+}
+
+.pokemon-spinner{
+  margin: 0px auto;
+}
+
+.cards-container{
+  padding: 20px 0px;
+}
+
+.pokemons-type-name{
+  width: 100%;
+  margin: 0px auto;
+  background-color: $color-transparent-white;
+  border-radius: 15px 15px 0px 0px;
+  padding: 1px 0px;
+
+  h2{
+    font-size: 1.2rem;
+    color: $color-white;
+  }
+}
+
+.cards{
+  width: 100%;
+  @include mixin-display-flex(column,space-between);
+  flex-wrap: wrap;
+  background-color: $color-transparent-grey;
+}
+.pokemon-card{
+  width: 90%;
+}
+
+@media (min-width: 767px) {
+
+  .input-container{
+    @include mixin-display-flex(row,space-between);
+    align-items: normal;
+  }
+
+  .input-component{
+    width: 70%;
+  }
+
+  .pokemons-type-name{
+    width: 95%;
+  }
+
+  .cards{
+    width: 95%;
+    margin: 0px auto;
+    @include mixin-display-flex(row,space-evenly);
+    gap: 10px;
+  }
+
+  .pokemon-card{
+    width: 460px;
+  }
+
+  .pokemons-type-name{
+    h2{
+      font-size: 1.8rem;
+    }
+  }
+
+}

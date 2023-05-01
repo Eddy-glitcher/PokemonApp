@@ -1,0 +1,43 @@
+@import '../../../../styles.scss';
+
+.search-bar{
+  width: 100%;
+  padding-left: 5px;
+  border-radius: 5px;
+  @include mixin-display-flex(row,space-between);
+  font-size: 16px;
+  background-color: $color-primary-light;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+button{
+  text-align: center;
+  background-color: $color-white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+
+  &:hover{
+    background-color: $color-grey;
+  }
+
+  i{
+    color:  $color-dark-grey;
+  }
+}
+
+.form-search{
+  width: 100%;
+}
+
+.form-search input{
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  color: $color-dark-grey;
+  outline: none;
+  &:focus{
+    color: $color-black;
+  }
+}

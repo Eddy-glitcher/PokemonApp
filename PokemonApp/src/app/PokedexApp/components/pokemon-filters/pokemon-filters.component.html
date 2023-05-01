@@ -1,0 +1,31 @@
+<section class="types-filters-section">
+
+  <div class="max-widht-content" [ngClass]="toggleFilterContent ? 'animate__animated animate__fadeIn' : 'animate__animated animate__fadeOutUp animate__slower'" *ngIf="toggleFilterContent">
+    <div class="filters-container">
+
+      <div class="title-filter"><h2>BUSCAR POR FILTROS</h2></div>
+
+      <div class="filter-items">
+        <owl-carousel-o [options]="customOptions" #owlCar>
+
+          <ng-container *ngFor="let filter of arrPokemonFilters; index as indexOfelement;">
+            <ng-template carouselSlide>
+                <button class="filter-item {{filter.type}}-type"  (click)="activateFilterClass(filter.type, indexOfelement); getPokemonsByType(filter.type)"  [ngClass]="activeFilterClass == filter.type ? 'filter-item-active' : '' ">
+                  <img ngSrc="{{filter.icon}}" width="100" height="100" alt="Filtro">
+                  <span>{{filter.name}}</span>
+                </button>
+            </ng-template>
+          </ng-container>
+
+        </owl-carousel-o>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="toggle-content">
+    <button (click)="toggleContent()" class="toggle-filters-button" title="mostrar">
+      <span>Mostrar Busqueda Por Tipos</span>
+    </button>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+@import '../../../../styles.scss';
+
+.header-container{
+  background-color: $color-primary;
+  padding: 10px 0px;
+}
+
+.header-logo{
+  width: 100%;
+  max-width: 350px;
+  margin: 0px auto;
+
+  .logo-img{
+    width: 100%;
+  }
+}

@@ -1,0 +1,70 @@
+<section class="search-bar-container">
+  <div class="input-container">
+    <div class="search-bar" #divElement>
+      <article class="search-bar-title">
+        <p>Buscar Por Nombre</p>
+      </article>
+
+      <app-pokemon-input
+        [selectedPokemon]="selectedPokemon"
+        (onSearchPokemon)="searchPokemon($event)"
+        (onDisplayOptions)="displayPokemonOptions($event)"
+        (onDebounce)="showSuggestedPokemons($event)"
+      ></app-pokemon-input>
+
+      <div class="search-data" *ngIf="displaySuggestedOptions">
+        <ul>
+          <li
+            *ngFor="let pokemon of suggestedPokemons.slice(0, 4)"
+            (click)="setPokemonName(pokemon.name)"
+            class="search-item"
+          >
+            {{ pokemon.name | titlecase }}
+          </li>
+
+          <li class="search-item search-item-error" *ngIf="showErrorMessage()">
+            <span> Pokemon no encontrado</span>
+            <i class="fa-solid fa-circle-exclamation"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="search-bar-message">
+      <article>
+        <p>Puedes buscar por el nombre del Pokemon o por palabras claves</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="filter-container">
+  <app-pokemon-filters></app-pokemon-filters>
+</section>
+
+<section class="pokemon-cards-container">
+  <div
+    class="loader-spinner"
+    *ngIf="initialPokemons.length == 0; else pokemonsCards"
+  >
+    <app-pokemon-loader class="pokemon-spinner"></app-pokemon-loader>
+  </div>
+
+  <ng-template #pokemonsCards>
+    <div class="cards-container">
+      <div class="pokemons-type-name">
+        <h2>
+          {{ getPokemonsType | uppercase }}
+        </h2>
+      </div>
+
+      <div class="cards">
+        <app-pokemon-card
+          class="pokemon-card"
+          *ngFor="let pokemon of initialPokemons"
+          [pokemon]="pokemon"
+        ></app-pokemon-card>
+      </div>
+    </div>
+  </ng-template>
+</section>

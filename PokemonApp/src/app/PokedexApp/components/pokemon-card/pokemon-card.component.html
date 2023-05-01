@@ -1,0 +1,32 @@
+<div class="pokemon-card {{pokemon.types[0].type.name}}-type">
+  <div class="pokemon-data-items">
+    <div class="pokemon-info">
+      <span class="pokemon-id">#{{ pokemon.id }}</span>
+      <span class="pokemon-name">{{ pokemon.name | titlecase }}</span>
+    </div>
+
+    <div class="pokemon-details">
+      <div class="pokemon-image">
+        <img
+          ngSrc="{{pokemon.sprites.other?.dream_world?.front_default || pokemon.sprites.other!['official-artwork'].front_default | defaultpokemonImage}}"
+          width="100"
+          height="100"
+          alt="Pokémon"
+        />
+      </div>
+
+      <div class="pokemon-types">
+        <h3 class="type-title">Tipos</h3>
+        <ul>
+          <li *ngFor="let type of pokemon.types; index as i">{{ pokemon.types[i].type.name | titlecase }}</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pokemon-button">
+    <button (click)="goToPokemonView(pokemon.name)">Ver Pokemon</button>
+  </div>
+</div>
+
