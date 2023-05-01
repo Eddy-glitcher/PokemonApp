@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Subject, debounceTime } from 'rxjs';
 
 @Component({
@@ -9,6 +9,7 @@ import { Subject, debounceTime } from 'rxjs';
 export class PokemonInputComponent implements OnInit {
 
   @Input() selectedPokemon : string = '';
+  @ViewChild('searchedValue') searchedValue!: ElementRef;
   debouncer: Subject<string> = new Subject();
 
   @Output() onDebounce: EventEmitter<string> = new EventEmitter();
@@ -16,8 +17,8 @@ export class PokemonInputComponent implements OnInit {
   @Output() onSearchPokemon: EventEmitter<string> = new EventEmitter();
 
   // When the user press a key into the input send the value to charge the pokemon list
-  keyPressed(){
-    this.debouncer.next(this.selectedPokemon);
+  keyPressed(): void{
+    this.debouncer.next(this.selectedPokemon.toLowerCase());
   }
 
   // To send a boolean when the input is focused
@@ -26,12 +27,13 @@ export class PokemonInputComponent implements OnInit {
   }
 
   // Send the input value to search pokemon
-  searchPokemon(pokemonName : string){
-    this.onSearchPokemon.emit(pokemonName);
+  searchPokemon(pokemonName : string): void{
+    this.searchedValue.nativeElement.blur();
+    this.onSearchPokemon.emit(pokemonName.toLowerCase());
   }
 
   // Initialization the debouncer
-  ngOnInit(){
+  ngOnInit(): void{
     this.debouncer
     .pipe(
       debounceTime(300)
