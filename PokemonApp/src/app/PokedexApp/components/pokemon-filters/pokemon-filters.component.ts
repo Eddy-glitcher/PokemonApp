@@ -12,6 +12,12 @@ export class PokemonFiltersComponent {
 
   // Set the property for the toggle class
   activeFilterClass: string = this.pokeApiService.activeFilterClass;
+  toggleFilterContent : boolean = false;
+
+  // To show or hide the filters items
+  toggleContent(){
+    this.toggleFilterContent = !this.toggleFilterContent;
+  }
 
   // To set the toggle class when the type is active
   activateFilterClass(type : string,index : number){
