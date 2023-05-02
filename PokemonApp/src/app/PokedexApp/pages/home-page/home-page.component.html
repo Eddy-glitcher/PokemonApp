@@ -12,7 +12,7 @@
         (onDebounce)="showSuggestedPokemons($event)"
       ></app-pokemon-input>
 
-      <div class="search-data" *ngIf="displaySuggestedOptions">
+      <div class="search-data" *ngIf="isSuggestedOptionsActive">
         <ul>
           <li
             *ngFor="let pokemon of suggestedPokemons.slice(0, 4)"

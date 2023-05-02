@@ -14,7 +14,7 @@ export class HomePageComponent {
   suggestedPokemons        : Result[] = [];
   searchedPokemonList      : PokemonData[] = [];
   pokemonName              : string  = '';
-  displaySuggestedOptions !: boolean;
+  isSuggestedOptionsActive !: boolean;
   selectedPokemon          : string = '';
 
   // To get the initialPpokemons list from poke-api service
@@ -48,7 +48,7 @@ export class HomePageComponent {
       this.pokeApiService.getPokemonByName(pokemonSearched!.name).subscribe((pokemon)=>{this.searchedPokemonList.push(pokemon)});
       this.pokeApiService.currentTypePokemon = `Buscaste el Pokemon: ${pokemonName}`;
       this.pokeApiService.pokemonInitialList = this.searchedPokemonList;
-      this.displaySuggestedOptions = false;
+      this.isSuggestedOptionsActive = false;
     }else{
 
       if (this.showErrorMessage()) {
@@ -64,14 +64,14 @@ export class HomePageComponent {
 
         this.pokeApiService.currentTypePokemon = `Pokemones con la palabra: ${pokemonName}`;
         this.pokeApiService.pokemonInitialList = this.searchedPokemonList;
-        this.displaySuggestedOptions = false;
+        this.isSuggestedOptionsActive = false;
 
     }
   }
 
   // To show the list of pokemons
   displayPokemonOptions(state : boolean){
-    this.displaySuggestedOptions = state;
+    this.isSuggestedOptionsActive = state;
   }
 
   // To show the message error
@@ -83,7 +83,7 @@ export class HomePageComponent {
   setPokemonName(pokemonName : string): void{
     this.selectedPokemon = pokemonName;
     this.searchPokemon(pokemonName);
-    this.displaySuggestedOptions = false;
+    this.isSuggestedOptionsActive = false;
   }
 
   // To manipulate de html click event
@@ -93,7 +93,7 @@ export class HomePageComponent {
   onClick(targetElement : Node): void {
     const clickedInside = this.divElement.nativeElement.contains(targetElement);
     if (!clickedInside) {
-      this.displaySuggestedOptions = false;
+      this.isSuggestedOptionsActive = false;
     }
   }
 

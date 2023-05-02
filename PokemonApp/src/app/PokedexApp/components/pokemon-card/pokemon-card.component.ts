@@ -10,10 +10,11 @@ import { Router } from '@angular/router';
 export class PokemonCardComponent {
 
   @Input() pokemon!: PokemonData;
-  constructor(private router : Router){}
 
   goToPokemonView(pokemonName : string){
     this.router.navigate(['Pokedex/pokemon', pokemonName]);
   }
+
+  constructor(private router : Router){}
 
 }
